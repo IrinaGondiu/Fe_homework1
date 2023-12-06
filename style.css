@@ -9,13 +9,19 @@ nav {
   background-color: #f44336;
   position: fixed;
   width: 100%;
+  z-index: 2;
   }
+  @media only screen and (max-width: 463px) {
+    nav {max-width:none;
+      
+    }
+  }
+  
 
   nav ul {
     list-style: none;
     display: flex;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    padding: 12px 24px 12px 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     font-size: 18px;
   
   }
@@ -27,6 +33,7 @@ nav {
   }
 
   nav ul li a {
+    display: block;
     color: white;
     text-decoration: none;
     padding: 12px 24px;
@@ -34,7 +41,7 @@ nav {
   }
 
   nav ul li a:hover {
-    background-color: white;
+    background-color: rgb(244, 214, 214);
     color: black;
   }
 
@@ -43,7 +50,9 @@ nav {
     color: black;
   }
 
-
+  .dropdown-menu__label{
+    display: none;
+  }
 
    header{
 
@@ -58,12 +67,12 @@ nav {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     margin: 16px;
-    font-size: 64px
+    font-size: calc(40px + (64 - 40) * ((100vw - 275px) / 1900));
    }
 
    header p{
     margin: 24px 0 24px 0;
-    font-size: 24px;
+    font-size: calc(15px + (24 - 15) * ((100vw - 275px) / 1900));
     font-family: "Lato", sans-serif;
     font-weight: 400;
    }
@@ -71,7 +80,7 @@ nav {
    header button {
     background-color: #000;
     color: #fff;
-    font-size: 18px;
+    font-size: calc(10px + (18 - 10) * ((100vw - 375px) / 1900));
     padding: 12px 24px;
     margin-top: 16px;
     border: none;
@@ -90,21 +99,23 @@ nav {
   .main__content{
     padding: 64px 16px;
     display: flex;
-    max-width: 1076px;
+    max-width: 980px;
     margin: 0 auto;
     gap: 20px;
     line-height: 1.5;
   }
+
   
 
   .main__description{
     width: 66.66666%;
+    font-size: calc(20px + (64 - 40) * ((100vw - 275px) / 1900));
   }
   .main__description h2{
     margin: 10px 0;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    font-size: 36px;
+    font-size: calc(30px + (36 - 30) * ((100vw - 275px) / 1900));
   }
 
   .main__description .first-paragraph{
@@ -112,18 +123,19 @@ nav {
     padding: 32px 0;
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: calc(15px + (18 - 15) * ((100vw - 275px) / 1900));
   }
   .main__description .second-paragraph{
     color: #757575;
-    font-size: 15px;
+    font-size: calc(12px + (15 - 12) * ((100vw - 275px) / 1900));
   }
 
   .main__icon{
     width: 33.33333%;
-    font-size: 200px;
+    font-size: calc(150px + (200 - 100) * ((100vw - 375px) / 1900));
     color: #f44336;
     padding: 64px 0;
+    
   }
 
   .main__content-second{
@@ -137,20 +149,21 @@ nav {
     padding: 64px 16px;
     opacity: 0.60;
     text-align: center;
-    font-size: 24px;
+    font-size: calc(15px + (24 - 15) * ((100vw - 375px) / 1900));
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
   }
 
   .quote__container p{
     margin: 16px;
+    
   }
 
   .footer__content{
     padding: 64px 16px;
     text-align: center;
     opacity: 0.60;
-    font-size: 24px;
+    font-size: calc(15px + (24 - 15) * ((100vw - 375px) / 1900));
     font-family: "Lato", sans-serif;
     line-height: 1.5;
   }
@@ -163,10 +176,68 @@ nav {
 
   .footer__paragraph p{
     margin: 15px 0 15px 0;
-    font-size: 15px;
+    font-size: calc(15px + (24 - 15) * ((100vw - 375px) / 1900));
   }
 
   .footer__paragraph a{
     color: #000;
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 1076px) {
+     .main__content{
+      max-width: 976px;
+      
+    }
+  }
+  @media only screen and (max-width: 680px) {
+     .main__content{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding: 25px 15px;
+    }
+    .main__description{
+      width: 100%;
+    }
+    .main__icon{
+      width: 100%;
+      padding: 10px 15px;
+    }
+  }
+  @media only screen and (max-width: 550px) {
+
+    .dropdown-menu__content{
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      background-color: #fff;
+      padding: 20px;
+      min-width: 200px;
+      z-index: 3;
+      font-size: 10px;
+
+    }
+    .dropdown-menu__label{
+      display: block;
+      color: #fff;
+      padding: 10px 10px;
+      cursor: pointer;
+    }
+
+    .dropdown-menu:hover .dropdown-menu__content{
+      display: flex;
+    }
+    nav ul li {
+      color: black;
+      padding: 12px 24px;
+     
+    }
+    nav ul li a{
+      color: black;
+      font-weight: 600;
+    }
+    }
+
+  
